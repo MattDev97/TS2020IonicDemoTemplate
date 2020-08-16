@@ -1,0 +1,7 @@
+{
+  "name": "TS2020IonicDemoTemplate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
