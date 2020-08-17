@@ -1,10 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-back-button slot="start"></ion-back-button>
-    <ion-title>grocery-item-detail</ion-title>
+    <ion-title>{{groceryItem.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card >
+    <ion-card-header>
+      <img src={{groceryItem.image_url}}/>
+      <ion-card-title>{{groceryItem.name}}</ion-card-title>
+      <ion-card-subtitle>{{groceryItem.price}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{groceryItem.description }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
