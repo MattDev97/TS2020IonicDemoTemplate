@@ -10,6 +10,7 @@ import { GroceryItem } from '../core/models/grocery-item';
 export class HomePage implements OnInit, OnDestroy {
 
   public groceryList: GroceryItem[];
+  public appTitle: String = 'Grocery List';
 
   constructor(private groceryListService: GrocerylistService) {}
 
