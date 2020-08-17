@@ -1,0 +1,11 @@
+<ion-list lines="full">
+  <ion-item  button detail *ngFor="let groceryItem of groceryList" (click)="goToItemDetail(groceryItem.id)">
+    <ion-thumbnail slot="start">
+      <img src={{groceryItem.image_url}}>
+    </ion-thumbnail>
+    <ion-label>
+      {{groceryItem.name}}
+    </ion-label>
+    <ion-button fill="outline" slot="end">View</ion-button>
+  </ion-item>
+</ion-list>
