@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { GrocerylistService } from '../core/services/grocerylist.service';
+import { GroceryItem } from '../core/models/grocery-item';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit, OnDestroy {
 
-  constructor() {}
+  public groceryList: GroceryItem[];
+
+  constructor(private groceryListService: GrocerylistService) {}
+
+  ngOnInit() {
+    this.groceryListService.groceryListObservable$.subscribe({
+      next: (list) => this.groceryList = list
+    });
+  }
+
+  ngOnDestroy() {
+    this.groceryListService.groceryListObservable$.unsubscribe();
+  }
 
 }
