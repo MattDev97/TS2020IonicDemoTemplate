@@ -11,11 +11,21 @@ export class GroceryListComponent implements OnInit {
 
   @Input() public groceryList : GroceryItem[];
 
+  filteredList : GroceryItem[];
+
   constructor(private router : Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.filteredList = this.groceryList;
+  }
 
   goToItemDetail(id) {
     this.router.navigate(['grocery-item-detail',JSON.stringify(id)]);
+  }
+
+  filterList(event) {
+    console.log('Input!');
+    const query = event.target.value.toLowerCase();
+    this.filteredList = this.groceryList.filter(item => item.name.toLowerCase().includes(query));
   }
 }

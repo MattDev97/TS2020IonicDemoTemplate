@@ -1,5 +1,7 @@
+<ion-searchbar (ionInput)="filterList($event)"></ion-searchbar>
+
 <ion-list lines="full">
-  <ion-item  button detail *ngFor="let groceryItem of groceryList" (click)="goToItemDetail(groceryItem.id)">
+  <ion-item  button detail *ngFor="let groceryItem of filteredList" (click)="goToItemDetail(groceryItem.id)">
     <ion-thumbnail slot="start">
       <img src={{groceryItem.image_url}}>
     </ion-thumbnail>
